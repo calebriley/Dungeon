@@ -1,0 +1,367 @@
+html, body{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Inter', sans-serif;
+}
+.container {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr min-content;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header profile combat skills powers inventory"
+    "main-content sidebar sidebar sidebar sidebar sidebar"
+    "chatbox sidebar sidebar sidebar sidebar sidebar";
+  width: 100%;
+  height: 100%;
+}
+
+input, textarea {
+  border-radius: 0px;
+  border: 1px solid rgb(84, 110, 122);
+}
+
+input:focus, textarea:focus {
+  border: 2px solid rgb(2, 136, 209);
+  border-radius: 0px;
+  outline: none;
+}
+
+.chatbox {
+  padding: 10px;
+  grid-area: chatbox;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 50px;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "chat-entry send";
+}
+
+.main-content { grid-area: main-content;
+  padding: 20px;
+  overflow-y: scroll;
+  box-shadow: inset 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+.header {
+  grid-area: header;
+  font-size: 20px;
+  background-color: rgb(69, 90, 100);
+  color: white;
+  display: grid;
+  line-height: 30px;
+  grid-template-columns: 1fr 150px;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "title roll";
+    padding: 10px;
+}
+
+.roll { grid-area: roll; }
+
+.title { grid-area: title; }
+
+}
+
+.profile { grid-area: profile; }
+
+.combat { grid-area: combat; }
+
+.skills { grid-area: skills; }
+
+.powers { grid-area: powers; }
+
+.inventory { grid-area: inventory; }
+
+
+.active-content { grid-area: sidebar; }
+
+.hidden-content {
+  display: none !important;
+}
+
+.selected-tab {
+  background-color: rgb(236, 239, 241) !important;
+  cursor: default;
+  color: black !important;
+}
+
+.tabs {
+  padding: 10px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgb(207, 216, 220);
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.5s background-color;
+}
+
+.tabs:hover {
+  background-color: rgb(2, 136, 209);
+  color: white;
+}
+
+.content-tabs {
+  background-color: rgb(236, 239, 241);
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+#chat-entry { grid-area: chat-entry; }
+
+#send { grid-area: send;
+  border: 0px;
+  background-color: rgb(176, 190, 197);
+  border-radius: 0px;
+  text-transform: uppercase;
+  transition: 0.5s background-color;
+}
+
+#send:hover {
+  background-color: rgb(2, 136, 209);
+  color: white;
+}
+
+#send:active {
+  background-color: rgb(120, 144, 156);
+}
+
+.button { grid-area: send;
+  border: 0px;
+  background-color: rgb(176, 190, 197);
+  border-radius: 0px;
+  text-transform: uppercase;
+  transition: 0.5s background-color;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.button:hover {
+  background-color: rgb(2, 136, 209);
+  color: white;
+}
+
+.button:active {
+  background-color: rgb(120, 144, 156);
+}
+
+#combat-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 20px 40px 40px 40px 40px 40px 40px 40px 40px 40px max-content;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "current-hp-label max-hp-label temp-hp-label"
+    "current-hp max-hp temp-hp"
+    "armor-class-label initiative-label speed-label"
+    "armor-class initiative speed"
+    "saving-throws saving-throws saving-throws"
+    "str-save dex-save con-save"
+    "int-save wis-save cha-save"
+    "death-saves-label death-success-label death-failures-label"
+    "death-saves death-success death-failures"
+    "attacks-label attacks-label attacks-label"
+    "attacks attacks attacks";
+}
+
+.death-saves {
+  grid-area: death-saves;
+}
+.death-success {
+  grid-area: death-success;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40px;
+  text-align: center;
+  line-height: 40px;
+  grid-column-gap: 10px;
+}
+.death-success div, .death-failures div {
+  background-color: rgb(176, 190, 197);
+}
+
+
+.death-success div input, .death-failures div input {
+  height: 20px;
+  width: 20px;
+  border-radius: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.death-success div input:checked, .death-failures div input:checked {
+  background-color: rgb(46, 125, 50);
+}
+
+.death-failures {
+  grid-area: death-failures;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40px;
+  text-align: center;
+  line-height: 40px;
+  grid-column-gap: 10px;
+}
+.death-saves-label {
+  grid-area: death-saves-label;
+}
+.death-success-label {
+  grid-area: death-success-label;
+}
+.death-failures-label {
+  grid-area: death-failures-label;
+}
+
+.saving-throws { grid-area: saving-throws; }
+
+.str-save { grid-area: str-save; }
+
+.dex-save { grid-area: dex-save; }
+
+.con-save { grid-area: con-save; }
+
+.int-save { grid-area: int-save; }
+
+.wis-save { grid-area: wis-save; }
+
+.cha-save { grid-area: cha-save; }
+
+.armor-class-label { grid-area: armor-class-label; }
+
+.initiative { grid-area: initiative;}
+
+.initiative-label { grid-area: initiative-label; }
+
+.speed { grid-area: speed;}
+
+.current-hp { grid-area: current-hp; }
+
+.max-hp { grid-area: max-hp; }
+
+.speed-label { grid-area: speed-label; }
+
+.temp-hp { grid-area: temp-hp; }
+
+.current-hp-label { grid-area: current-hp-label; padding-top: 0px !important;}
+
+.max-hp-label { grid-area: max-hp-label;  padding-top: 0px !important;}
+
+.temp-hp-label { grid-area: temp-hp-label;  padding-top: 0px !important;}
+
+.armor-class { grid-area: armor-class;}
+
+.attacks-label { grid-area: attacks-label; }
+
+.attacks { grid-area: attacks; }
+
+.label {
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 20px;
+}
+
+.num-input {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 20px;
+  padding-left: 10px;
+  width: 100%;
+  font-weight: 300;
+  display: block;
+  text-align: center;
+  height: 40px;
+}
+.roll {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "dis-roll nor-roll adv-roll";
+  width: 150px;
+  height: 30px;
+}
+.roll div {
+  background-color: rgb(144, 164, 174);
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.5s background-color;
+  margin: 0px;
+  padding: 0px;
+}
+.roll div:hover {
+  background-color: rgb(2, 136, 209);
+  color: white;
+}
+
+.roll div span {
+  margin-top: 3px;
+}
+
+#dis-roll { grid-area: dis-roll; }
+#dis-roll.selected {
+  background-color: rgb(229, 115, 115) !important;
+  cursor: default;
+}
+
+#nor-roll { grid-area: nor-roll; }
+#nor-roll.selected {
+  background-color: rgb(2, 136, 209) !important;
+  cursor: default;
+}
+
+#adv-roll { grid-area: adv-roll; }
+#adv-roll.selected {
+  background-color: rgb(174, 213, 129) !important;
+  cursor: default;
+}
+
+.message {
+  padding-bottom: 10px;
+}
+.char-name {
+  font-weight: bold;
+}
+
+.result {
+  padding: 2px;
+  background-color: rgb(207, 216, 220);
+  width: 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+.result.crit {
+  background-color: rgb(174, 213, 129);
+}
+
+.result.fail {
+  background-color: rgb(229, 115, 115);
+}

@@ -1,0 +1,132 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link rel="stylesheet" href="style.css" type="text/css">
+<body>
+<div class="container">
+  <div class="chatbox"><textarea rows="2" id="chat-entry"></textarea><input id="send" type="submit"></input></div>
+  <div class="main-content">
+  </div>
+  <div class="header">
+    <div class="title">Carla Copperleaf</div>
+    <div class="roll">
+    <div id="dis-roll" class="triple"><span class="material-icons">
+remove_circle_outline
+</span></div>
+    <div id="nor-roll" class="triple selected"><span class="material-icons">
+casino
+</span>
+</div>
+    <div id="adv-roll" class="triple"><span class="material-icons">
+add_circle_outline
+</span>
+
+</div>
+<input id="roll-value" type="hidden" value="0">
+  </div></div>
+  <div id="profile-tab" class="tabs profile">Profile</div>
+  <div id="combat-tab" class="tabs combat selected-tab">Combat</div>
+  <div id="skills-tab" class="tabs skills">Skills</div>
+  <div id="powers-tab" class="tabs powers">Powers</div>
+  <div id="inventory-tab" class="tabs inventory">Inventory</div>
+  <div id="profile-content" class="content-tabs hidden-content">
+    <h2>Profile</h2>
+    <ul>
+      <li>Class</li>
+      <li>Level</li>
+      <li>Player Name</li>
+      <li>Background</li>
+      <li>Race</li>
+      <li>Alignment</li>
+      <li>Personality Traits</li>
+      <li>Ideals</li>
+      <li>Bonds</li>
+      <li>Flaws</li>
+      <li>Notes</li>
+    </ul>
+  </div>
+  <div id="combat-content" class="content-tabs active-content">
+
+    <div class="label current-hp-label">Current HP</div>
+    <div class="label max-hp-label">Max HP</div>
+    <div class="label temp-hp-label">Temp HP</div>
+
+    <!-- <div class="current-hp">Current HP</div>
+    <div class="max-hp">Max HP</div>
+    <div class="temp-hp">Temp HP</div> -->
+
+    <div class="current-hp"><input class="num-input" value="23"></input></div>
+    <div class="max-hp"><input class="num-input" value="45"></input></div>
+    <div class="temp-hp"><input class="num-input" value="10"></input></div>
+
+
+    <div class="button initiative">+3</div>
+    <div class="button armor-class">15</div>
+    <div class="button speed">25 ft</div>
+
+    <div class="label armor-class-label">Armor Class</div>
+    <div class="label initiative-label">Initiative</div>
+    <div class="label speed-label">Speed</div>
+
+
+
+
+    <div class="label saving-throws">Saving Throws</div>
+
+    <div class="button str-save">STR -1</div>
+    <div class="button dex-save">DEX +3</div>
+    <div class="button con-save">CON +2</div>
+
+    <div class="button int-save">INT +0</div>
+    <div class="button wis-save">WIS +3</div>
+    <div class="button cha-save">CHA +6</div>
+
+    <div class="label death-saves-label">Death Saves</div>
+    <div class="label death-success-label">Successes</div>
+    <div class="label death-failures-label">Failures</div>
+
+    <div class="button death-saves">Roll</div>
+    <div class="death-success"><div><input type="checkbox" class="succ-check"></div><div><input type="checkbox" class="succ-check"></div><div><input type="checkbox" class="succ-check"></div></div>
+    <div class="death-failures"><div><input type="checkbox" class="fail-check"></div><div><input type="checkbox" class="fail-check"></div><div><input type="checkbox" class="fail-check"></div></div>
+
+    <div class="label attacks-label">Attacks</div>
+
+    <div class="attacks"></div>
+
+  </div>
+  <div id="skills-content" class="content-tabs hidden-content">
+    <h2>Skills</h2>
+    <ul>
+      <li>Skill proficienies</li>
+      <li>Tool proficienies</li>
+      <li>Languages</li>
+      <li>Weapon proficienies</li>
+      <li>Armor proficienies</li>
+    </ul>
+  </div>
+  <div id="powers-content" class="content-tabs hidden-content">
+    <h2>Powers</h2>
+    <ul>
+      <li>Spells</li>
+      <li>Class features</li>
+      <li>Feats</li>
+    </ul>
+  </div>
+  <div id="inventory-content" class="content-tabs hidden-content">
+    <h2>Inventory</h2>
+    <ul>
+      <li>Carry Capacity</li>
+      <li>Item</li>
+      <li>Qty</li>
+      <li>Weight</li>
+      <li>Total Weight</li>
+    </ul>
+  </div>
+</div>
+<script src="dungeon.js"></script>
+</body>
+</html>
